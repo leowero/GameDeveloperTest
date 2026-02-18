@@ -1191,6 +1191,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa6834e315f7a14f81bec3fb27b64b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Controllers.GameManager
+  Symbols:
+  - {fileID: 1331648757}
+  - {fileID: 1421351210}
+  - {fileID: 122498995}
+  - {fileID: 8613885}
+  - {fileID: 1596035298}
+  - {fileID: 384184110}
+  - {fileID: 1244838392}
+  - {fileID: 1893149477}
+  - {fileID: 1156556345}
+  - {fileID: 658748318}
+  - {fileID: 885000578}
+  - {fileID: 1946842712}
+  - {fileID: 418479162}
+  - {fileID: 1490230062}
+  - {fileID: 2074817065}
+  VisualSymbolsData:
+  - {fileID: 11400000, guid: ea8ce2209db8eac499383507302c346b, type: 2}
+  - {fileID: 11400000, guid: ec6bb18a3494cdb4295263ee5d17c415, type: 2}
+  - {fileID: 11400000, guid: 9672c9817ce00c745b7132b67bffbfac, type: 2}
+  - {fileID: 11400000, guid: 61b6cbed3b6db6a4aac9adecd2d9a6c1, type: 2}
+  - {fileID: 11400000, guid: 3aab67351d2db8f4f93c0de5f87522c7, type: 2}
+  - {fileID: 11400000, guid: d658c16681ed2074997b6b82ea840767, type: 2}
+  - {fileID: 11400000, guid: cfb7e5508e1f7864ebba64f760d3f569, type: 2}
 --- !u!4 &1050052448
 Transform:
   m_ObjectHideFlags: 0
@@ -1972,7 +1996,7 @@ GameObject:
   - component: {fileID: 1859242237}
   - component: {fileID: 1859242236}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Spin Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2040,7 +2064,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1859242237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1050052447}
+        m_TargetAssemblyTypeName: Project.Slots.Presentation.Controllers.GameManager,
+          Assembly-CSharp
+        m_MethodName: Spin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859242237
 MonoBehaviour:
   m_ObjectHideFlags: 0

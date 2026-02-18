@@ -4,17 +4,14 @@ namespace Project.Core.SlotMachine.States
     {
         public void Enter()
         {
-            throw new System.NotImplementedException();
         }
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
         }
 
-        public void Update()
+        public void Action()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

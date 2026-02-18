@@ -5,7 +5,7 @@ namespace Project.Core.SlotMachine
 {
     public class GameStateMachine
     {
-        private IGameState CurrentState;
+        public IGameState CurrentState;
         private readonly Dictionary<Type, IGameState> States = new Dictionary<Type, IGameState>();
         private bool IsTransitioning;
 
@@ -35,9 +35,9 @@ namespace Project.Core.SlotMachine
             IsTransitioning = false;
         }
 
-        public void Update()
+        public void Action()
         {
-            CurrentState?.Update();
+            CurrentState?.Action();
         }
     }
 }

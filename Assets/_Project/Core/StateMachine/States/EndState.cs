@@ -12,7 +12,7 @@ namespace Project.Core.SlotMachine.States
             throw new System.NotImplementedException();
         }
 
-        public void Update()
+        public void Action()
         {
             throw new System.NotImplementedException();
         }
