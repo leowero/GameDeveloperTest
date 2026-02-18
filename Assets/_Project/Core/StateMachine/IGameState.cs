@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public class IGameState
+namespace Project.Core.SlotMachine
 {
-    
+    public interface IGameState
+    {
+        public void Enter();
+        public void Update();
+        public void Exit();
+    }
 }
