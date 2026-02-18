@@ -1,5 +1,6 @@
 using Project.Core.SlotMachine;
 using Project.Core.SlotMachine.States;
+using Project.Slots.Data;
 using Project.Slots.Domain.Configuration.Definitions;
 using Project.Slots.Domain.Symbols;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Project.Slots.Presentation.Controllers
     {
         public List<Image> Symbols = new List<Image>();
         public List<VisualSymbol> VisualSymbolsData = new List<VisualSymbol>();
+        public List<Pattern> Patterns = new List<Pattern>();
         public SymbolType[][] Grid;
 
         private GameStateMachine StateMachine = new GameStateMachine();

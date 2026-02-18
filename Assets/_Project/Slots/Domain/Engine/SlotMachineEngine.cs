@@ -1,6 +1,9 @@
+using NUnit.Framework;
+using Project.Slots.Data;
 using Project.Slots.Domain.Configuration.Definitions;
 using Project.Slots.Domain.Reels;
 using Project.Slots.Domain.Symbols;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Project.Slots.Domain.Engine
@@ -30,6 +33,59 @@ namespace Project.Slots.Domain.Engine
             }
 
             return grid;
+        }
+
+        public static List<WinLineDefinition> CompileWins(SymbolType[][] grid, List<Pattern> patterns)
+        {
+            List<WinLineDefinition> wins = new();
+
+            int columns = grid.Length;
+
+            foreach (var pattern in patterns)
+            {
+                string[] colPatterns = pattern.pattern.Split(',');
+
+                SymbolType firstSymbol = null;
+                int matchCount = 0;
+
+                for (int col = 0; col < columns; col++)
+                {
+                    int row = colPatterns[col].IndexOf('1');
+
+                    if (row < 0)
+                    {
+                        break;
+                    }
+
+                    SymbolType current = grid[col][row];
+
+                    if (firstSymbol == null)
+                    {
+                        firstSymbol = current;
+                        matchCount = 1;
+                        continue;
+                    }
+
+                    if (current.Type != firstSymbol.Type)
+                    {
+                        break;
+                    }
+
+                    matchCount++;
+                }
+
+                int payout = 0;
+                PayTableData.payTable.TryGetPayout(firstSymbol, matchCount, out payout);
+
+                if (payout == 0)
+                {
+                    continue;
+                }
+
+                wins.Add(new WinLineDefinition(pattern.id, matchCount, firstSymbol.Type, payout));
+            }
+
+            return wins;
         }
 
         public static string CircularSubstring(string input, int startIndex, int length)
