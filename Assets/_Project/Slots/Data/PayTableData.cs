@@ -5,7 +5,7 @@ namespace Project.Slots.Data
 {
     public static class PayTableData
     {
-        public static PayTable payTable = new PayTableBuilder()
+        public static PayTable PayTable = new PayTableBuilder()
                 .AddSymbol(new SymbolPayBuilder(SymbolsConstants.BellSymbol)
                 .AddPayout(2, 25)
                 .AddPayout(3, 50)

@@ -1,3 +1,4 @@
+using Project.Slots.Domain.Engine;
 using System;
 using System.Collections.Generic;
 
@@ -5,39 +6,41 @@ namespace Project.Core.SlotMachine
 {
     public class GameStateMachine
     {
-        public IGameState CurrentState;
-        private readonly Dictionary<Type, IGameState> States = new Dictionary<Type, IGameState>();
-        private bool IsTransitioning;
+        private IGameState _CurrentState;
+        private readonly Dictionary<Type, IGameState> _States = new Dictionary<Type, IGameState>();
+        private bool _IsTransitioning;
+
+        public IGameState CurrentState => _CurrentState;
 
         public void RegisterState<T>(T state) where T : IGameState
         {
-            States[typeof(T)] = state;
+            _States[typeof(T)] = state;
         }
 
         public void ChangeState<T>() where T : IGameState
         {
-            if (IsTransitioning)
+            if (_IsTransitioning)
             {
                 return;
             }
 
-            if (!States.TryGetValue(typeof(T), out IGameState newState))
+            if (!_States.TryGetValue(typeof(T), out IGameState newState))
             {
                 throw new Exception($"State {typeof(T)} not registered.");
             }
 
-            IsTransitioning = true;
+            _IsTransitioning = true;
 
-            CurrentState?.Exit();
-            CurrentState = newState;
-            CurrentState.Enter();
+            _CurrentState?.Exit();
+            _CurrentState = newState;
+            _CurrentState.Enter();
 
-            IsTransitioning = false;
+            _IsTransitioning = false;
         }
 
-        public void Action()
+        public SpinResult Action()
         {
-            CurrentState?.Action();
+            return _CurrentState?.Action();
         }
     }
 }

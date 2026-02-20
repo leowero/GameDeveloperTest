@@ -1,23 +1,19 @@
 using Project.Core.SlotMachine;
 using Project.Core.SlotMachine.States;
-using Project.Slots.Data;
-using Project.Slots.Domain.Configuration.Definitions;
-using Project.Slots.Domain.Symbols;
-using System.Collections.Generic;
-using System.Linq;
+using Project.Slots.Domain.Engine;
+using Project.Slots.Presentation.Configuration;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Project.Slots.Presentation.Controllers
 {
     public class GameManager : MonoBehaviour
     {
-        public List<Image> Symbols = new List<Image>();
-        public List<VisualSymbol> VisualSymbolsData = new List<VisualSymbol>();
-        public List<Pattern> Patterns = new List<Pattern>();
-        public SymbolType[][] Grid;
+        [SerializeField] private SlotsConfiguration _Configuration;
+        public event Action<SpinResult> OnSpinResolved;
+        public event Action OnReelsStopped;
 
-        private GameStateMachine StateMachine = new GameStateMachine();
+        private readonly GameStateMachine _StateMachine = new GameStateMachine();
 
         public static GameManager Instance { get; private set; }
 
@@ -34,11 +30,11 @@ namespace Project.Slots.Presentation.Controllers
 
         private void Start()
         {
-            StateMachine.RegisterState(new StartState());
-            StateMachine.RegisterState(new SpinState());
-            StateMachine.RegisterState(new EndState());
+            _StateMachine.RegisterState(new StartState());
+            _StateMachine.RegisterState(new SpinState(_Configuration.Patterns));
+            _StateMachine.RegisterState(new EndState());
 
-            StateMachine.ChangeState<StartState>();
+            _StateMachine.ChangeState<StartState>();
         }
 
         private void Update()
@@ -48,20 +44,14 @@ namespace Project.Slots.Presentation.Controllers
 
         public void Spin()
         {
-            StateMachine.ChangeState<SpinState>();
-            StateMachine.Action();
-            UpdateVisuals();
+            _StateMachine.ChangeState<SpinState>();
+            SpinResult result = _StateMachine.Action();
+            OnSpinResolved?.Invoke(result);
         }
 
-        public void UpdateVisuals()
+        public void NotifyReelsStopped()
         {
-            for (int column = 0; column < Grid.Length; column++)
-            {
-                for (int row = 0; row < Grid[column].Length; row++)
-                {
-                    Symbols[column * SlotDefinition.Rows + row].sprite = VisualSymbolsData.FirstOrDefault(s => s.id == Grid[column][row].Type).sprite;
-                }
-            }
+            OnReelsStopped?.Invoke();
         }
     }
 }

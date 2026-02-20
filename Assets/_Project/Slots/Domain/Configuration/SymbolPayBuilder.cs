@@ -7,28 +7,28 @@ namespace Project.Slots.Domain.Configuration
 {
     public class SymbolPayBuilder
     {
-        private readonly SymbolType Symbol;
-        private readonly Dictionary<int, int> Payouts = new();
+        private readonly SymbolType _Symbol;
+        private readonly Dictionary<int, int> _Payouts = new();
 
         public SymbolPayBuilder(SymbolType symbol)
         {
-            Symbol = symbol;
+            _Symbol = symbol;
         }
 
         public SymbolPayBuilder AddPayout(int count, int payout)
         {
-            if (Payouts.ContainsKey(count))
+            if (_Payouts.ContainsKey(count))
             {
-                throw new System.Exception($"Duplicate payout for {Symbol} with {count}.");
+                throw new System.Exception($"Duplicate payout for {_Symbol} with {count}.");
             }
 
-            Payouts[count] = payout;
+            _Payouts[count] = payout;
             return this;
         }
 
         public SymbolPayDefinition Build()
         {
-            return new SymbolPayDefinition(Symbol, Payouts);
+            return new SymbolPayDefinition(_Symbol, _Payouts);
         }
     }
 }

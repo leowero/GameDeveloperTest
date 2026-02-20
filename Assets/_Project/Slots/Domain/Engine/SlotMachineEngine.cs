@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using Project.Slots.Data;
 using Project.Slots.Domain.Configuration.Definitions;
 using Project.Slots.Domain.Reels;
@@ -10,9 +9,10 @@ namespace Project.Slots.Domain.Engine
 {
     public static class SlotMachineEngine
     {
-        public static SymbolType[][] Spin()
+        public static SymbolType[][] Spin(out int[] stopIndexes)
         {
             SymbolType[][] grid = new SymbolType[SlotDefinition.Columns][];
+            stopIndexes = new int[SlotDefinition.Columns];
 
             for (int i = 0; i < grid.Length; i++)
             {
@@ -22,9 +22,10 @@ namespace Project.Slots.Domain.Engine
             for (int column = 0; column < SlotDefinition.Columns; column++)
             {
                 int reelLength = ReelStrips.Reels[column].Length;
-                int startIndex = Random.Range(0, reelLength);
+                int stopIndex = Random.Range(0, reelLength);
+                stopIndexes[column] = stopIndex;
 
-                string selectedSymbols = CircularSubstring(ReelStrips.Reels[column], startIndex, SlotDefinition.Rows);
+                string selectedSymbols = CircularSubstring(ReelStrips.Reels[column], stopIndex, SlotDefinition.Rows);
 
                 for (int row = 0; row < SlotDefinition.Rows; row++)
                 {
@@ -35,9 +36,9 @@ namespace Project.Slots.Domain.Engine
             return grid;
         }
 
-        public static List<WinLineDefinition> CompileWins(SymbolType[][] grid, List<Pattern> patterns)
+        public static IReadOnlyList<WinLineDefinition> CompileWins(SymbolType[][] grid, IReadOnlyList<Pattern> patterns)
         {
-            List<WinLineDefinition> wins = new();
+            List<WinLineDefinition> wins = new List<WinLineDefinition>();
 
             int columns = grid.Length;
 
@@ -75,7 +76,7 @@ namespace Project.Slots.Domain.Engine
                 }
 
                 int payout = 0;
-                PayTableData.payTable.TryGetPayout(firstSymbol, matchCount, out payout);
+                PayTableData.PayTable.TryGetPayout(firstSymbol, matchCount, out payout);
 
                 if (payout == 0)
                 {

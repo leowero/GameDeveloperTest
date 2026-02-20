@@ -1,11 +1,11 @@
-using UnityEngine;
+using Project.Slots.Domain.Engine;
 
 namespace Project.Core.SlotMachine
 {
     public interface IGameState
     {
         public void Enter();
-        public void Action();
+        public SpinResult Action();
         public void Exit();
     }
 }

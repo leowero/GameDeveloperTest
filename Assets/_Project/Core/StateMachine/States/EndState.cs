@@ -1,20 +1,22 @@
+using Project.Slots.Domain.Engine;
+
 namespace Project.Core.SlotMachine.States
 {
     public class EndState : IGameState
     {
         public void Enter()
         {
-            throw new System.NotImplementedException();
+            return;
         }
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
+            return;
         }
 
-        public void Action()
+        public SpinResult Action()
         {
-            throw new System.NotImplementedException();
+            return null;
         }
     }
 }

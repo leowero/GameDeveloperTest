@@ -22,13 +22,13 @@ namespace Project.Slots.Domain.Symbols
 
         public static Dictionary<char, SymbolType> SymbolsMapping = new Dictionary<char, SymbolType>
         {
-            { BELL, BellSymbol},
-            { CHERRY, CherrySymbol},
-            { GRAPES, GrapesSymbol},
-            { LEMON, LemonSymbol},
-            { ORANGE, OrangeSymbol},
-            { PLUM, PlumSymbol},
-            { WATERMELON, WatermelonSymbol}
+            { BELL, BellSymbol },
+            { CHERRY, CherrySymbol },
+            { GRAPES, GrapesSymbol },
+            { LEMON, LemonSymbol },
+            { ORANGE, OrangeSymbol },
+            { PLUM, PlumSymbol },
+            { WATERMELON, WatermelonSymbol }
         };
     }
 }

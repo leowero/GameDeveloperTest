@@ -645,6 +645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 552991693}
   - component: {fileID: 552991694}
+  - component: {fileID: 552991695}
   m_Layer: 5
   m_Name: Reels 1
   m_TagString: Untagged
@@ -698,6 +699,33 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 3
+--- !u!114 &552991695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552991692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917054c9d0cebac448959a03c942bc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Views.ReelView
+  _Symbols:
+  - {fileID: 8613885}
+  - {fileID: 1596035298}
+  - {fileID: 384184110}
+  _VisualSymbols:
+  - {fileID: 11400000, guid: ea8ce2209db8eac499383507302c346b, type: 2}
+  - {fileID: 11400000, guid: ec6bb18a3494cdb4295263ee5d17c415, type: 2}
+  - {fileID: 11400000, guid: 9672c9817ce00c745b7132b67bffbfac, type: 2}
+  - {fileID: 11400000, guid: 61b6cbed3b6db6a4aac9adecd2d9a6c1, type: 2}
+  - {fileID: 11400000, guid: 3aab67351d2db8f4f93c0de5f87522c7, type: 2}
+  - {fileID: 11400000, guid: d658c16681ed2074997b6b82ea840767, type: 2}
+  - {fileID: 11400000, guid: cfb7e5508e1f7864ebba64f760d3f569, type: 2}
+  _ReelIndex: 1
+  _MinRotationTime: 2
+  _MaxRotationTime: 4
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +998,7 @@ GameObject:
   - component: {fileID: 782593607}
   - component: {fileID: 782593608}
   m_Layer: 5
-  m_Name: Reels B
+  m_Name: Reels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,6 +1062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788654822}
   - component: {fileID: 788654823}
+  - component: {fileID: 788654824}
   m_Layer: 5
   m_Name: Reels 2
   m_TagString: Untagged
@@ -1087,6 +1116,33 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 3
+--- !u!114 &788654824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788654821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917054c9d0cebac448959a03c942bc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Views.ReelView
+  _Symbols:
+  - {fileID: 1244838392}
+  - {fileID: 1893149477}
+  - {fileID: 1156556345}
+  _VisualSymbols:
+  - {fileID: 11400000, guid: ea8ce2209db8eac499383507302c346b, type: 2}
+  - {fileID: 11400000, guid: ec6bb18a3494cdb4295263ee5d17c415, type: 2}
+  - {fileID: 11400000, guid: 9672c9817ce00c745b7132b67bffbfac, type: 2}
+  - {fileID: 11400000, guid: 61b6cbed3b6db6a4aac9adecd2d9a6c1, type: 2}
+  - {fileID: 11400000, guid: 3aab67351d2db8f4f93c0de5f87522c7, type: 2}
+  - {fileID: 11400000, guid: d658c16681ed2074997b6b82ea840767, type: 2}
+  - {fileID: 11400000, guid: cfb7e5508e1f7864ebba64f760d3f569, type: 2}
+  _ReelIndex: 2
+  _MinRotationTime: 2
+  _MaxRotationTime: 4
 --- !u!1 &885000576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,40 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa6834e315f7a14f81bec3fb27b64b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Controllers.GameManager
-  Symbols:
-  - {fileID: 1331648757}
-  - {fileID: 1421351210}
-  - {fileID: 122498995}
-  - {fileID: 8613885}
-  - {fileID: 1596035298}
-  - {fileID: 384184110}
-  - {fileID: 1244838392}
-  - {fileID: 1893149477}
-  - {fileID: 1156556345}
-  - {fileID: 658748318}
-  - {fileID: 885000578}
-  - {fileID: 1946842712}
-  - {fileID: 418479162}
-  - {fileID: 1490230062}
-  - {fileID: 2074817065}
-  VisualSymbolsData:
-  - {fileID: 11400000, guid: ea8ce2209db8eac499383507302c346b, type: 2}
-  - {fileID: 11400000, guid: ec6bb18a3494cdb4295263ee5d17c415, type: 2}
-  - {fileID: 11400000, guid: 9672c9817ce00c745b7132b67bffbfac, type: 2}
-  - {fileID: 11400000, guid: 61b6cbed3b6db6a4aac9adecd2d9a6c1, type: 2}
-  - {fileID: 11400000, guid: 3aab67351d2db8f4f93c0de5f87522c7, type: 2}
-  - {fileID: 11400000, guid: d658c16681ed2074997b6b82ea840767, type: 2}
-  - {fileID: 11400000, guid: cfb7e5508e1f7864ebba64f760d3f569, type: 2}
-  Patterns:
-  - {fileID: 11400000, guid: 99e2e4e6e3878814ea00378bbbea3daa, type: 2}
-  - {fileID: 11400000, guid: e6e3a6f8b4cc3ef46a0cea9dfd079e6b, type: 2}
-  - {fileID: 11400000, guid: 265d1fd4ef087f047bed25bde03f9cbf, type: 2}
-  - {fileID: 11400000, guid: 69c1284dc5017de4dad7323d0c006401, type: 2}
-  - {fileID: 11400000, guid: 53b3690abf18bdb49a24a418a01b777b, type: 2}
-  - {fileID: 11400000, guid: 484d91dea18e46a4880fcc870fa855a3, type: 2}
-  - {fileID: 11400000, guid: b2ac1d211bff5e845b467c63a36fb65a, type: 2}
-  - {fileID: 11400000, guid: 3ffd99efe43630448bc6976c006d6088, type: 2}
-  - {fileID: 11400000, guid: 145ac5987b5fc5c40adfd02e61aaee6e, type: 2}
+  _Configuration: {fileID: 1505891754}
 --- !u!4 &1050052448
 Transform:
   m_ObjectHideFlags: 0
@@ -1250,6 +1273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090249040}
   - component: {fileID: 1090249041}
+  - component: {fileID: 1090249042}
   m_Layer: 5
   m_Name: Reels 0
   m_TagString: Untagged
@@ -1303,6 +1327,33 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 3
+--- !u!114 &1090249042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090249039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917054c9d0cebac448959a03c942bc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Views.ReelView
+  _Symbols:
+  - {fileID: 1331648757}
+  - {fileID: 1421351210}
+  - {fileID: 122498995}
+  _VisualSymbols:
+  - {fileID: 11400000, guid: ea8ce2209db8eac499383507302c346b, type: 2}
+  - {fileID: 11400000, guid: ec6bb18a3494cdb4295263ee5d17c415, type: 2}
+  - {fileID: 11400000, guid: 9672c9817ce00c745b7132b67bffbfac, type: 2}
+  - {fileID: 11400000, guid: 61b6cbed3b6db6a4aac9adecd2d9a6c1, type: 2}
+  - {fileID: 11400000, guid: 3aab67351d2db8f4f93c0de5f87522c7, type: 2}
+  - {fileID: 11400000, guid: d658c16681ed2074997b6b82ea840767, type: 2}
+  - {fileID: 11400000, guid: cfb7e5508e1f7864ebba64f760d3f569, type: 2}
+  _ReelIndex: 0
+  _MinRotationTime: 2
+  _MaxRotationTime: 4
 --- !u!1 &1156556343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1504,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244838390}
   m_CullTransparentMesh: 1
+--- !u!1 &1294995991
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1294995993}
+  - component: {fileID: 1294995992}
+  m_Layer: 0
+  m_Name: VisualSymbols
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1294995992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294995991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc19fa12d3865b43bb91242170bc7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Views.VisualSymbols
+  _Reels:
+  - {fileID: 1090249042}
+  - {fileID: 552991695}
+  - {fileID: 788654824}
+  - {fileID: 1668338892}
+  - {fileID: 1452432556}
+--- !u!4 &1294995993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294995991}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331648755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,6 +1789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1452432554}
   - component: {fileID: 1452432555}
+  - component: {fileID: 1452432556}
   m_Layer: 5
   m_Name: Reels 4
   m_TagString: Untagged
@@ -1741,6 +1843,33 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 3
+--- !u!114 &1452432556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452432553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917054c9d0cebac448959a03c942bc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Views.ReelView
+  _Symbols:
+  - {fileID: 418479162}
+  - {fileID: 1490230062}
+  - {fileID: 2074817065}
+  _VisualSymbols:
+  - {fileID: 11400000, guid: ea8ce2209db8eac499383507302c346b, type: 2}
+  - {fileID: 11400000, guid: ec6bb18a3494cdb4295263ee5d17c415, type: 2}
+  - {fileID: 11400000, guid: 9672c9817ce00c745b7132b67bffbfac, type: 2}
+  - {fileID: 11400000, guid: 61b6cbed3b6db6a4aac9adecd2d9a6c1, type: 2}
+  - {fileID: 11400000, guid: 3aab67351d2db8f4f93c0de5f87522c7, type: 2}
+  - {fileID: 11400000, guid: d658c16681ed2074997b6b82ea840767, type: 2}
+  - {fileID: 11400000, guid: cfb7e5508e1f7864ebba64f760d3f569, type: 2}
+  _ReelIndex: 4
+  _MinRotationTime: 2
+  _MaxRotationTime: 4
 --- !u!1 &1490230060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,6 +1945,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490230060}
   m_CullTransparentMesh: 1
+--- !u!1 &1505891753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505891755}
+  - component: {fileID: 1505891754}
+  m_Layer: 0
+  m_Name: SlotsConfiguration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1505891754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505891753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40cfd9b0d011ef4897f8e873f017553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Configuration.SlotsConfiguration
+  _Patterns:
+  - {fileID: 11400000, guid: 99e2e4e6e3878814ea00378bbbea3daa, type: 2}
+  - {fileID: 11400000, guid: e6e3a6f8b4cc3ef46a0cea9dfd079e6b, type: 2}
+  - {fileID: 11400000, guid: 265d1fd4ef087f047bed25bde03f9cbf, type: 2}
+  - {fileID: 11400000, guid: 69c1284dc5017de4dad7323d0c006401, type: 2}
+  - {fileID: 11400000, guid: 53b3690abf18bdb49a24a418a01b777b, type: 2}
+  - {fileID: 11400000, guid: 484d91dea18e46a4880fcc870fa855a3, type: 2}
+  - {fileID: 11400000, guid: b2ac1d211bff5e845b467c63a36fb65a, type: 2}
+  - {fileID: 11400000, guid: 3ffd99efe43630448bc6976c006d6088, type: 2}
+  - {fileID: 11400000, guid: 145ac5987b5fc5c40adfd02e61aaee6e, type: 2}
+--- !u!4 &1505891755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505891753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596035296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +2084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1668338890}
   - component: {fileID: 1668338891}
+  - component: {fileID: 1668338892}
   m_Layer: 5
   m_Name: Reels 3
   m_TagString: Untagged
@@ -1954,6 +2138,33 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 3
+--- !u!114 &1668338892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668338889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 917054c9d0cebac448959a03c942bc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Slots.Presentation.Views.ReelView
+  _Symbols:
+  - {fileID: 658748318}
+  - {fileID: 885000578}
+  - {fileID: 1946842712}
+  _VisualSymbols:
+  - {fileID: 11400000, guid: ea8ce2209db8eac499383507302c346b, type: 2}
+  - {fileID: 11400000, guid: ec6bb18a3494cdb4295263ee5d17c415, type: 2}
+  - {fileID: 11400000, guid: 9672c9817ce00c745b7132b67bffbfac, type: 2}
+  - {fileID: 11400000, guid: 61b6cbed3b6db6a4aac9adecd2d9a6c1, type: 2}
+  - {fileID: 11400000, guid: 3aab67351d2db8f4f93c0de5f87522c7, type: 2}
+  - {fileID: 11400000, guid: d658c16681ed2074997b6b82ea840767, type: 2}
+  - {fileID: 11400000, guid: cfb7e5508e1f7864ebba64f760d3f569, type: 2}
+  _ReelIndex: 3
+  _MinRotationTime: 2
+  _MaxRotationTime: 4
 --- !u!1 &1734405183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,5 +2644,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1050052448}
+  - {fileID: 1505891755}
+  - {fileID: 1294995993}
   - {fileID: 672542134}
   - {fileID: 309829789}

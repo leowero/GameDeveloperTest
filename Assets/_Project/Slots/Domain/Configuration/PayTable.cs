@@ -6,18 +6,18 @@ namespace Project.Slots.Domain.Configuration
 {
     public class PayTable
     {
-        private readonly Dictionary<SymbolType, SymbolPayDefinition> Definitions;
+        private readonly Dictionary<SymbolType, SymbolPayDefinition> _Definitions;
 
         public PayTable(Dictionary<SymbolType, SymbolPayDefinition> definitions)
         {
-            Definitions = definitions;
+            _Definitions = definitions;
         }
 
         public bool TryGetPayout(SymbolType symbol, int count, out int payout)
         {
             payout = 0;
 
-            if (!Definitions.TryGetValue(symbol, out var def))
+            if (!_Definitions.TryGetValue(symbol, out var def))
             {
                 return false;
             }
