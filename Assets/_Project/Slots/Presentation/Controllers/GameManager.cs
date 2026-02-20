@@ -10,6 +10,7 @@ namespace Project.Slots.Presentation.Controllers
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private SlotsConfiguration _Configuration;
+        public event Action OnSpinStarted;
         public event Action<SpinResult> OnSpinResolved;
         public event Action OnReelsStopped;
 
@@ -37,13 +38,10 @@ namespace Project.Slots.Presentation.Controllers
             _StateMachine.ChangeState<StartState>();
         }
 
-        private void Update()
-        {
-            
-        }
-
         public void Spin()
         {
+            OnSpinStarted?.Invoke();
+
             _StateMachine.ChangeState<SpinState>();
             SpinResult result = _StateMachine.Action();
             OnSpinResolved?.Invoke(result);

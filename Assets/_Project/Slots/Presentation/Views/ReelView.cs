@@ -103,11 +103,24 @@ namespace Project.Slots.Presentation.Views
                 char symbol = _Strip[index]; _Symbols[i].sprite = _SymbolMap[symbol];
             }
         }
-        
+
         public Task WaitUntilStopped()
         {
             return _SpinCompletion?.Task ?? Task.CompletedTask;
         }
+
+        public Vector3 GetSymbolWorldCenter(int row)
+        {
+            if (_Symbols == null || row < 0 || row >= _Symbols.Length || _Symbols[row] == null)
+            {
+                return transform.position;
+            }
+
+            RectTransform rt = _Symbols[row].rectTransform;
+            Vector3 localCenter = rt.rect.center;
+            return rt.TransformPoint(localCenter);
+        }
+
         private void OnDestroy()
         {
             _Disposed = true;
