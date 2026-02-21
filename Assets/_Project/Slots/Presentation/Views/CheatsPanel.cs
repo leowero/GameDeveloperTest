@@ -24,25 +24,9 @@ namespace Project.Slots.Presentation.Views
             }
         }
 
-        private void OnEnable()
-        {
-            if (_Input != null)
-            {
-                _Input.onSubmit.AddListener(OnSubmit);
-            }
-        }
-
-        private void OnDisable()
-        {
-            if (_Input != null)
-            {
-                _Input.onSubmit.RemoveListener(OnSubmit);
-            }
-        }
-
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Toggle();
             }
@@ -63,10 +47,13 @@ namespace Project.Slots.Presentation.Views
                 _Message.text = string.Empty;
             }
 
-            if (next && _Input != null)
+            if (next)
             {
-                _Input.text = string.Empty;
-                _Input.ActivateInputField();
+                if (_Input != null)
+                {
+                    _Input.text = string.Empty;
+                    _Input.ActivateInputField();
+                }
             }
         }
 
@@ -77,11 +64,25 @@ namespace Project.Slots.Presentation.Views
                 return;
             }
 
-            _Root.SetActive(false);
-        }
+            string text = string.Empty;
 
-        private void OnSubmit(string text)
-        {
+            if (_Input != null)
+            {
+                text = _Input.text;
+            }
+
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                _Root.SetActive(false);
+
+                if (_Message != null)
+                {
+                    _Message.text = string.Empty;
+                }
+
+                return;
+            }
+
             bool ok = TryApply(text, out string message);
 
             if (_Message != null)
@@ -89,7 +90,19 @@ namespace Project.Slots.Presentation.Views
                 _Message.text = message;
             }
 
-            if (!ok && _Input != null)
+            if (ok)
+            {
+                _Root.SetActive(false);
+
+                if (_Input != null)
+                {
+                    _Input.text = string.Empty;
+                }
+
+                return;
+            }
+
+            if (_Input != null)
             {
                 _Input.ActivateInputField();
             }
@@ -99,9 +112,9 @@ namespace Project.Slots.Presentation.Views
         {
             message = string.Empty;
 
-            if (!CheatParser.TryParse(text, out CheatRequest req, out string err))
+            if (!CheatParser.TryParse(text, out CheatRequest request, out string error))
             {
-                message = err;
+                message = error;
                 return false;
             }
 
@@ -111,15 +124,14 @@ namespace Project.Slots.Presentation.Views
                 return false;
             }
 
-            var provider = GameManager.Instance.GetCheatProvider();
+            var provider = GameManager.Instance.CheatProvider;
             if (provider == null)
             {
                 message = "CheatProvider not available.";
                 return false;
             }
 
-            provider.Queue(req);
-            message = "Cheat enqueued for next spin.";
+            provider.Queue(request);
             return true;
         }
     }

@@ -1,11 +1,17 @@
-using Project.Slots.Domain.Engine;
 using Project.Slots.Presentation.Controllers;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Project.Slots.Presentation.Views
 {
-    public class SpinButtonController : MonoBehaviour
+    /// <summary>
+    /// Controls the interactable state of the Spin button based on the spin lifecycle events.
+    /// </summary>
+    /// <remarks>
+    /// Disables the button when a spin starts and enables it again once the reels have visually stopped.
+    /// </remarks>
+    [RequireComponent(typeof(Button))]
+    public sealed class SpinButtonController : MonoBehaviour
     {
         private Button _SpinButton;
 
@@ -14,29 +20,38 @@ namespace Project.Slots.Presentation.Views
             _SpinButton = GetComponent<Button>();
         }
 
-        private void Start()
-        {
-            GameManager.Instance.OnSpinResolved += HandleSpinStarted;
-            GameManager.Instance.OnReelsStopped += HandleSpinFinished;
-        }
-
-        private void OnDestroy()
+        private void OnEnable()
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.OnSpinResolved -= HandleSpinStarted;
+                GameManager.Instance.OnSpinStarted += HandleSpinStarted;
+                GameManager.Instance.OnReelsStopped += HandleSpinFinished;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.OnSpinStarted -= HandleSpinStarted;
                 GameManager.Instance.OnReelsStopped -= HandleSpinFinished;
             }
         }
 
-        private void HandleSpinStarted(SpinResult _)
+        private void HandleSpinStarted()
         {
-            GameManager.Instance.OnSpinStarted += () => _SpinButton.interactable = false;
+            if (_SpinButton != null)
+            {
+                _SpinButton.interactable = false;
+            }
         }
 
         private void HandleSpinFinished()
         {
-            _SpinButton.interactable = true;
+            if (_SpinButton != null)
+            {
+                _SpinButton.interactable = true;
+            }
         }
     }
 }

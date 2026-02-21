@@ -1,34 +1,53 @@
 using Project.Slots.Domain.Configuration.Definitions;
-using Project.Slots.Domain.Symbols;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Project.Slots.Domain.Configuration
 {
-    public class SymbolPayBuilder
+    /// <summary>
+    /// Builder used to create a <see cref="SymbolPayDefinition"/> for a single symbol.
+    /// </summary>
+    public sealed class SymbolPayBuilder
     {
-        private readonly SymbolType _Symbol;
+        private readonly char _SymbolId;
         private readonly Dictionary<int, int> _Payouts = new Dictionary<int, int>();
 
-        public SymbolPayBuilder(SymbolType symbol)
+        /// <summary>
+        /// Creates a builder for the specified symbol id.
+        /// </summary>
+        /// <param name="symbolId">Raw symbol identifier.</param>
+        public SymbolPayBuilder(char symbolId)
         {
-            _Symbol = symbol;
+            _SymbolId = symbolId;
         }
 
+        /// <summary>
+        /// Adds a payout entry for a given match count.
+        /// </summary>
+        /// <param name="count">Match count.</param>
+        /// <param name="payout">Payout value.</param>
+        /// <returns>The same builder instance for fluent chaining.</returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown when a payout for the same match count is added more than once.
+        /// </exception>
         public SymbolPayBuilder AddPayout(int count, int payout)
         {
             if (_Payouts.ContainsKey(count))
             {
-                throw new System.Exception($"Duplicate payout for {_Symbol} with {count}.");
+                throw new InvalidOperationException($"Duplicate payout for symbol '{_SymbolId}' with count {count}.");
             }
 
             _Payouts[count] = payout;
             return this;
         }
 
+        /// <summary>
+        /// Builds the <see cref="SymbolPayDefinition"/> from the currently configured payouts.
+        /// </summary>
+        /// <returns>A new <see cref="SymbolPayDefinition"/>.</returns>
         public SymbolPayDefinition Build()
         {
-            return new SymbolPayDefinition(_Symbol, _Payouts);
+            return new SymbolPayDefinition(_SymbolId, _Payouts);
         }
     }
 }
