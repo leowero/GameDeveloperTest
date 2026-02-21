@@ -8,7 +8,7 @@ namespace Project.Slots.Domain.Configuration
     public class SymbolPayBuilder
     {
         private readonly SymbolType _Symbol;
-        private readonly Dictionary<int, int> _Payouts = new();
+        private readonly Dictionary<int, int> _Payouts = new Dictionary<int, int>();
 
         public SymbolPayBuilder(SymbolType symbol)
         {

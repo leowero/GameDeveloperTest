@@ -1,5 +1,6 @@
 using Project.Core.SlotMachine;
 using Project.Core.SlotMachine.States;
+using Project.Slots.Domain.Cheats;
 using Project.Slots.Domain.Engine;
 using Project.Slots.Presentation.Configuration;
 using System;
@@ -15,6 +16,7 @@ namespace Project.Slots.Presentation.Controllers
         public event Action OnReelsStopped;
 
         private readonly GameStateMachine _StateMachine = new GameStateMachine();
+        private CheatStopProvider _CheatProvider;
 
         public static GameManager Instance { get; private set; }
 
@@ -31,12 +33,16 @@ namespace Project.Slots.Presentation.Controllers
 
         private void Start()
         {
+            _CheatProvider = new CheatStopProvider(_Configuration.Patterns);
+
             _StateMachine.RegisterState(new StartState());
-            _StateMachine.RegisterState(new SpinState(_Configuration.Patterns));
+            _StateMachine.RegisterState(new SpinState(_Configuration.Patterns, _CheatProvider));
             _StateMachine.RegisterState(new EndState());
 
             _StateMachine.ChangeState<StartState>();
         }
+
+        public CheatStopProvider GetCheatProvider() => _CheatProvider;
 
         public void Spin()
         {

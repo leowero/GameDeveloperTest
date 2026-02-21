@@ -28,7 +28,7 @@ namespace Project.Slots.Presentation.Views
         [SerializeField] private float _Thickness = 12f;
         [SerializeField] private int _CycleMs = 1000;
 
-        private readonly List<Image> _Segments = new();
+        private readonly List<Image> _Segments = new List<Image>();
         private SpinResult _LastResult;
         private CancellationTokenSource _CTS;
 

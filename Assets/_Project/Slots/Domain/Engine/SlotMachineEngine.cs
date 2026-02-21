@@ -9,7 +9,7 @@ namespace Project.Slots.Domain.Engine
 {
     public static class SlotMachineEngine
     {
-        public static SymbolType[][] Spin(out int[] stopIndexes)
+        public static SymbolType[][] Spin(out int[] stopIndexes, int[] forcedStopIndexes = null)
         {
             SymbolType[][] grid = new SymbolType[SlotDefinition.Columns][];
             stopIndexes = new int[SlotDefinition.Columns];
@@ -18,18 +18,20 @@ namespace Project.Slots.Domain.Engine
             {
                 grid[i] = new SymbolType[SlotDefinition.Rows];
             }
+                
 
             for (int column = 0; column < SlotDefinition.Columns; column++)
             {
                 int reelLength = ReelStrips.Reels[column].Length;
-                int stopIndex = Random.Range(0, reelLength);
+                int stopIndex = forcedStopIndexes != null ? forcedStopIndexes[column] : Random.Range(0, reelLength);
+
+                stopIndex = ((stopIndex % reelLength) + reelLength) % reelLength;
                 stopIndexes[column] = stopIndex;
 
-                string selectedSymbols = CircularSubstring(ReelStrips.Reels[column], stopIndex, SlotDefinition.Rows);
-
+                string selected = CircularSubstring(ReelStrips.Reels[column], stopIndex, SlotDefinition.Rows);
                 for (int row = 0; row < SlotDefinition.Rows; row++)
                 {
-                    grid[column][row] = SymbolsConstants.SymbolsMapping[selectedSymbols[row]];
+                    grid[column][row] = SymbolsConstants.SymbolsMapping[selected[row]];
                 }
             }
 
